@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>ejercicio-equipo</title>
+    </head>
+    <body>
+        <form id="form">
+            <input type="text" id="humedad" placeholder="humedad">
+            <input type="text" id="ambiente" placeholder="ambiente">
+            <input type="text" id="trabajadores" placeholder="trabajadores">
+            <input type="text" id="agua" placeholder="agua">
+            <button id="check">revisar</buton>
+        </form>
+        <script>
+            function checkSystem (humedad,ambiente,trabajadores,agua){
+                if(!(ambiente>30) && (ambiente<90)) {
+                    console.log('alarma ambiente');
+                }
+                if(humedad > 50) {
+                    console.log('alarma humedad');
+                }
+                if(trabajadores>100) {
+                    console.log('alarma trabajadores');
+                }
+                if(agua>90) {
+                    console.log('alarma agua')
+                }
+            }
+            let humedad=document.getElementById('humedad').value;
+            let ambiente=document.getElementById('ambiente').value;
+            let trabajadores=document.getElementById('trabajadores').value;
+            let agua=document.getElementById('agua').value;
+            document.getElementById('check').addEventListener('click',()=>{
+                console.log('click')
+            })
+            document.getElementById('form').addEventListener('click', ()=> {
+                event.preventDefault();
+            })
+        </script>
+
+        <input type="text" id="kilogramos" placeholder="peso en kilogramos">
+        <input type="text" id="estarura" placeholder="estatura">
+        <button id="imc">revisar</button>
+        <div>tu masa corporal es: <strong id="imcstrong"></strong></div>
+
+        <script>
+            document.getElementById('imc').addEventListener('click', () => {
+                let kilogramos= parseFloat(document,getElementById('kilogramos').value);
+                let estatura=parseFloat(document.getElementById('estatura').value);
+                let  imc=(kilgramos/estatura);
+                document.getElementById('imcstrong').innerText=imc;
+            });
+        </script>
+
+
+
+        <script src="assets/js/ejercicio.js"></script>
+    </body>
+</html>
